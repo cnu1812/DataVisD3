@@ -10,7 +10,7 @@ This code generates a D3 bubble map that displays the number of universities in 
 To use this code, you will need to include the D3 library in your project. You can do this by adding the following script tag to your HTML file:
 
 
-
+```html
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 You will also need to include the world.geojson and all_years_data.json files in your project. These files contain the geographic and university data used to generate the map.
