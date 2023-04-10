@@ -1,5 +1,5 @@
 // input the geodata public json
-var geodata = d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson", function (error, world) {
+var geodata = d3.json("world.geojson", function (error, world) {
     // Set up the SVG container
 
 
