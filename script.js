@@ -17,7 +17,8 @@ var geodata = d3.json("world.geojson", function (error, world) {
                 .attr("width", 960)
                 .attr("height", 600);
             // set the id attribute to svg-{year}
-            svg.attr("id", "svg-" + year)
+            svg.attr("id", `svg-${year}`)
+
             // Define the projection
             var projection = d3.geoMercator()
                 .scale(130)
@@ -70,9 +71,13 @@ var geodata = d3.json("world.geojson", function (error, world) {
             // Define the color scale for the continents
 
             var allContinents = d3.map(data[year], function (d) { return (d.continent) }).keys()
+            // Define a custom color scale with pastel colors for each continent
             var colorScale = d3.scaleOrdinal()
                 .domain([...new Set(data[year].map(d => d.continent))])
-                .range(d3.schemeCategory10);
+                .range(["#c7e9b4", "#9ecae1", "#fdb462", "#e377c2", "#b3de69", "#8da0cb"]);
+
+            // The rest of the code remains the same as before
+
             console.log(colorScale.domain());
             console.log(data[year].map(function (d) { return d.continent; }));
 
@@ -118,7 +123,7 @@ var geodata = d3.json("world.geojson", function (error, world) {
                 .attr("y", 30)
                 .attr("text-anchor", "middle")
                 // put a white background with 5px of padding and rounded
-                
+
 
                 .text(year)
 
@@ -126,12 +131,92 @@ var geodata = d3.json("world.geojson", function (error, world) {
             svg.append("text")
                 .attr("class", "subtitle")
                 .attr("x", width / 2)
-                .attr("y", height + 20)
+                .attr("y", height - 60)
                 .attr("text-anchor", "middle")
                 .text("Number of Countries: " + Object.values(counts).length)
                 .style("font-size", "13px") // set the font size to 24 pixels
                 .style("font-weight", "bold") // set the font weight to bold
                 .style("font-family", "Arial"); // set the font family to Arial
+
+            // ! bars start here
+
+
+
+            // Define an array of all the continent names
+            var allContinents = ["Europe", "North America", "Asia", "Oceania", "Africa", "South America"];
+
+            // Group the data by continent
+            var continentCounts = {};
+            allContinents.forEach(function (continent) {
+                if (!(continent in continentCounts)) {
+                    continentCounts[continent] = 0;
+                }
+            });
+            data[year].forEach(function (d) {
+                if (d.continent in continentCounts) {
+                    continentCounts[d.continent] += 1;
+                }
+            });
+
+            // Define the scale for the bar heights
+            var maxCount = d3.max(Object.values(continentCounts));
+            var heightScale = d3.scaleLinear()
+                .domain([0, maxCount])
+                .range([0, 100]);
+
+            // Define the scale for the bar positions
+            var continentScale = d3.scaleBand()
+                .domain(Object.keys(continentCounts))
+                .range([0, 800])
+                .padding(0.1);
+
+            
+
+            // Draw the bars
+            svg.selectAll("rect")
+                .data(Object.keys(continentCounts))
+                .enter()
+                .append("rect")
+                // set fill to a pastel green
+                .attr("fill", function (d) {
+                    return colorScale(d);
+                })
+                .attr("x", function (d) { return continentScale(d); })
+                .attr("y", function (d) { return 600 - heightScale(continentCounts[d]); })
+                .attr("width", continentScale.bandwidth())
+                .attr("height", function (d) { return heightScale(continentCounts[d]); })
+                .attr("fill-opacity", 0.5)
+                .attr("stroke", "white");
+
+            // Add the continent names as separate text elements on top of each bar
+            var continentNames = ["Europe", "North America", "Asia", "Oceania", "Africa", "South America"];
+            svg.selectAll(".continent-name")
+                .data(continentNames)
+                .enter()
+                .append("text")
+                .attr("class", "continent-name")
+                .text(function (d) { return d; })
+                .attr("text-anchor", "middle")
+                .style("background-color", "white")
+                .attr("x", function (d, i) { return (i * 133) + 69; })
+
+                .attr("y", function (d) { return 550; })
+                .attr("font-size", "10px")
+                // set z-index to make it on top of the bars
+                .style("z-index", "1")
+                .attr("fill", "#666");
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
