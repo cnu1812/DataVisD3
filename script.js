@@ -170,7 +170,7 @@ var geodata = d3.json("world.geojson", function (error, world) {
                 .range([0, 800])
                 .padding(0.1);
 
-            
+
 
             // Draw the bars
             svg.selectAll("rect")
@@ -186,7 +186,21 @@ var geodata = d3.json("world.geojson", function (error, world) {
                 .attr("width", continentScale.bandwidth())
                 .attr("height", function (d) { return heightScale(continentCounts[d]); })
                 .attr("fill-opacity", 0.5)
-                .attr("stroke", "white");
+                .attr("stroke", "white")
+                .on("mouseover", function (d) {
+                    var tooltipText = "Continent: " + d +
+                        "<tspan x=\"0\" dy=\"1.2em\"> | Universities: " + continentCounts[d] + "</tspan>";
+
+                    tooltip.html(tooltipText);
+                    tooltip.style("visibility", "visible")
+                })
+                .on("mousemove", function (d) {
+                    tooltip.style("top", (d3.event.pageY - 10) + "px")
+                        .style("left", (d3.event.pageX + 10) + "px");
+                })
+                .on("mouseout", function (d) {
+                    tooltip.style("visibility", "hidden");
+                });
 
             // Add the continent names as separate text elements on top of each bar
             var continentNames = ["Europe", "North America", "Asia", "Oceania", "Africa", "South America"];
