@@ -18,6 +18,8 @@ var geodata = d3.json("world.geojson", function (error, world) {
                 .attr("height", 600);
             // set the id attribute to svg-{year}
             svg.attr("id", `svg-${year}`)
+            // if the year is 2011, set the display to block, otherwise display none
+            svg.style("display", year == 2011 ? "block" : "none");
 
             // Define the projection
             var projection = d3.geoMercator()
@@ -239,4 +241,27 @@ var geodata = d3.json("world.geojson", function (error, world) {
 
     });
 });
+
+var yearSlider = document.getElementById("year-slider");
+
+// Add an event listener for the "input" event
+yearSlider.addEventListener("input", function () {
+    var year = parseInt(yearSlider.value);
+
+    // Loop through all the SVG elements and toggle their visibility based on the current year
+    for (var i = 2011; i <= 2022; i++) {
+        var svg = document.getElementById("svg-" + i);
+        if (i === year) {
+            svg.style.display = "block";
+        } else {
+            svg.style.display = "none";
+        }
+    }
+});
+
+// Set the initial visibility of the SVG elements to show only the elements for the year 2011
+for (var i = 2012; i <= 2022; i++) {
+    var svg = document.getElementById("svg-" + i);
+    svg.style.display = "none";
+}
 
