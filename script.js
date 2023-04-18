@@ -72,18 +72,16 @@ var geodata = d3.json("world.geojson", function (error, world) {
 
             // Define the color scale for the continents
 
-            var allContinents = d3.map(data[year], function (d) { return (d.continent) }).keys()
-            // Define a custom color scale with pastel colors for each continent
             var colorScale = d3.scaleOrdinal()
-                .domain([...new Set(data[year].map(d => d.continent))])
-                .range(["#c7e9b4", "#9ecae1", "#fdb462", "#e377c2", "#b3de69", "#8da0cb"]);
+                .domain(["North America", "South America", "Europe", "Asia", "Africa", "Oceania"])
+                .range(["#ff0000", "#00ff00", "#0000ff", "#ffa500", "#800080", "#00ffff"]);
 
-            // The rest of the code remains the same as before
+
 
             console.log(colorScale.domain());
             console.log(data[year].map(function (d) { return d.continent; }));
 
-            // what is the variable for the counts
+
             console.log(counts);
 
             // Draw the circles
@@ -222,20 +220,6 @@ var geodata = d3.json("world.geojson", function (error, world) {
                 .style("z-index", "1")
                 .attr("fill", "#666");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         });
 
 
@@ -259,9 +243,5 @@ yearSlider.addEventListener("input", function () {
     }
 });
 
-// Set the initial visibility of the SVG elements to show only the elements for the year 2011
-for (var i = 2012; i <= 2022; i++) {
-    var svg = document.getElementById("svg-" + i);
-    svg.style.display = "none";
-}
+
 
