@@ -231,6 +231,7 @@ var yearSlider = document.getElementById("year-slider");
 // Add an event listener for the "input" event
 yearSlider.addEventListener("input", function () {
     var year = parseInt(yearSlider.value);
+    
 
     // Loop through all the SVG elements and toggle their visibility based on the current year
     for (var i = 2011; i <= 2022; i++) {
