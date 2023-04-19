@@ -4,36 +4,82 @@
     <meta charset="UTF-8">
     <title>D3 Data Vis Project</title>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <main>
-        <section>
-            <h1>Lorem ipsum dolor sit consectetur</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In blandit massa ex, sed euismod leo malesuada
-                non. Nam eget ex in lectus sollicitudin ornare. Vivamus bibendum luctus libero.
-            </p>
+        <section class="content">
+                <p>Chapter One</p>
+                <h1>The Rule of European Unis</h1>
+                <div class="chapter-wrapper">
+                    <p>
+                        Since 2015, the number of European universities has increased significantly. This increase can be attributed to several reasons. First, many EU countries have increased funding for research and education in recent years, which has allowed universities to improve their facilities.
+                        <br>
+                        <br>
+                        In addition, the emergence of new technologies and virtual platforms have facilitated collaboration and sharing of resources between universities, leading to an increase in joint degree programs and research initiatives. The growth of the knowledge economy and the increasing importance of higher education in the labor market have fueled the demand for universities, especially those with a strong research reputation.
+                        <br>
+                        <br>
+                        As a result, European universities have invested heavily in research and innovation, which has enabled them to attract the best talent and receive funding from public sources. Furthermore, the increasing globalization of higher education has increased the ability of European universities to attract international students, increasing their status and reputation worldwide. Finally, the rise of European universities reflects the region's commitment to innovation and excellence in teaching and research.
+                    </p>
+                    <div id="european-unis" style="width: 100%;height:100%;"></div>
+                </div>
         </section>
-        <section class="chart-section">
-            <div class="slider-section">
-                <p>2011</p>
-                <!-- HTML code for the slider -->   
-                <div class="range-slider">
-                    <input type="range" min="2011" max="2022" value="2011" id="year-slider" class="slider">
-                    <div class="slider-thumb">
-                        <div class="tooltip">
-                            <p class="tooltip-label"></p>
+        <section class="content">
+                <p>Chapter Two</p>
+                <h1 class="sky">The Rise of Asian Unis</h1>
+                <div class="chapter-wrapper">
+                    <p>
+                        Many factors have contributed to the rise of Asian universities in recent years. One of the main factors is the increase in funding for education from many Asian countries, which has stimulated the development of world-class universities.
+                        <br>
+                        <br>
+                        For example, China has invested heavily in higher education, with the government spending more than $250 billion on building new universities and improving existing ones over the next decade. This investment has helped Chinese universities attract top schools, students and research investment, which has led to their rise to the world stage.
+                        <br>
+                        <br>
+                        In addition, many Asian countries have placed a strong emphasis on technology and technical training, which has enabled their universities to do well in these areas. As the arena becomes more global and interconnected, the success of Asian universities seems to continue to be recognized as the main players in the global university network.
+                    </p>
+                    <div id="asian-unis" style="width: 100%;height:100%;"></div>
+                </div>
+        </section>
+        <section class="content">
+                <p>Comparing Facts</p>
+                <h1 class="sky">Asian Unis x European Unis</h1>
+                <div class="chapter-wrapper no-gap">
+                    <div class="chart-section">
+                        <div class="slider-section">
+                            <p>2011</p>
+                            <!-- HTML code for the slider -->   
+                            <div class="range-slider">
+                                <input type="range" min="2011" max="2022" value="2011" id="year-slider" class="slider">
+                                <div class="slider-thumb">
+                                    <div class="tooltip">
+                                        <p class="tooltip-label"></p>
+                                    </div>
+                                </div>
+                                <div class="progress"></div>
+                            </div> 
+        
+                            <p>2022</p>
                         </div>
+                        <!-- SVG elements with IDs that correspond to the years -->
+                        <!-- Container for the SVG elements -->
+                        <div id="map-elements"></div>
                     </div>
-                    <div class="progress"></div>
-                </div> 
-
-                <p>2022</p>
-            </div>
-            <!-- SVG elements with IDs that correspond to the years -->
-            <!-- Container for the SVG elements -->
-            <div id="map-elements"></div>
+                    <p>
+                        In summary, European and Asian universities have seen their rankings increase significantly over the past decade.
+                        <br>
+                        <br>
+                        The rise of European universities can be attributed to investment in research and development, in addition to international participation and collaboration with the best universities in the world.
+                    </p>
+                </div>
+                <div class="chapter-wrapper">
+                    <p>
+                        On the other hand, the rise of Asian universities can be attributed to the large amount of money that the government invests in focusing on innovation and technological progress.
+                        <br>
+                        <br>
+                        With continued growth and investment in better education in every region, it is likely that these trends will continue and we will even see new top universities emerging in Europe and Asia in the coming years.                    </p>
+                    <div id="asian-european-unis" style="width: 100%;height:50vh"></div>
+                </div>
         </section>
     </main>
     <script src="script.js"></script>
