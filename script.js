@@ -212,11 +212,11 @@ var geodata = d3.json("world.geojson", function (error, world) {
                 .text(function (d) { return d; })
                 .attr("text-anchor", "middle")
                 .style("background-color", "white")
+                .style("border-radius", "5px")
+                .style("padding", "5px")
                 .attr("x", function (d, i) { return (i * 133) + 69; })
-
                 .attr("y", function (d) { return 550; })
                 .attr("font-size", "10px")
-                // set z-index to make it on top of the bars
                 .style("z-index", "1")
                 .attr("fill", "#666");
 
@@ -231,7 +231,7 @@ var yearSlider = document.getElementById("year-slider");
 // Add an event listener for the "input" event
 yearSlider.addEventListener("input", function () {
     var year = parseInt(yearSlider.value);
-    
+
 
     // Loop through all the SVG elements and toggle their visibility based on the current year
     for (var i = 2011; i <= 2022; i++) {
