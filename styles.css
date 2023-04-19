@@ -17,11 +17,6 @@ body {
     color: var(--clr-slate-800);
 }
 
-header {
-    text-align: center;
-    color: #C3073F;
-}
-
 main {
     margin-top: 2.5rem;
     padding: 0 2rem;
