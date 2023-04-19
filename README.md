@@ -1,7 +1,16 @@
-# DataVisD3
-Data Visualisation using D3
+## Story
 
-## D3 Bubble Map
+## Thought process behind the data story
+- 
+- 
+-  
+- 
+
+## Algorithms / libraries used to generate the visualization
+
+- Data Visualisation using D3
+
+- D3 Bubble Map
 
 This code generates a D3 bubble map that displays the number of universities in each country for a given year. The map uses data from two JSON files: world.geojson and all_years_data.json.
 
@@ -16,7 +25,7 @@ To use this code, you will need to include the D3 library in your project. You c
 
 You will also need to include the world.geojson and all_years_data.json files in your project. These files contain the geographic and university data used to generate the map.
 
-## Usage
+## Setting Up the project
 
 To generate the map, simply open the HTML file in your browser. The map will be displayed in the #map-elements div. The map will display data for all years contained in the all_years_data.json file.
 

@@ -34,8 +34,8 @@ var geodata = d3.json("world.geojson", function (error, world) {
                 .enter()
                 .append("path")
                 .attr("d", path)
-                .attr("fill", "#ddd")
-                .attr("stroke", "#aaa");
+                .attr("fill", "#e2e8f0")
+                .attr("stroke", "#94a3b8");
 
             var tooltip = d3.select("body")
                 .append("div")
@@ -136,7 +136,7 @@ var geodata = d3.json("world.geojson", function (error, world) {
                 .text("Number of Countries: " + Object.values(counts).length)
                 .style("font-size", "13px") // set the font size to 24 pixels
                 .style("font-weight", "bold") // set the font weight to bold
-                .style("font-family", "Arial"); // set the font family to Arial
+                .style("font-family", "Inter"); // set the font family to nter
 
             // ! bars start here
 
@@ -244,5 +244,31 @@ yearSlider.addEventListener("input", function () {
     }
 });
 
+// Select the main container
+const container = document.querySelectorAll(".range-slider");
 
+// Select the individual parts
+const slider = document.querySelector(".slider");
+const thumb = document.querySelector(".slider-thumb");
+const tooltipLabel = document.querySelector(".tooltip-label");
+const progress = document.querySelector(".progress");
 
+// Function for handling the slider values
+function customSlider() {
+    // Get the percentage
+    const maxVal = slider.getAttribute("max") - 2011;
+    const val = ((slider.value - 2011) / maxVal) * 100 + "%";
+
+    //Display the value in the tooltip
+    tooltipLabel.textContent = slider.value;
+
+    // Set the thumb and progress to the current value
+    progress.style.width = val;
+    thumb.style.left = val;
+}
+
+customSlider();
+
+slider.addEventListener("input", () => {
+    customSlider();
+})
