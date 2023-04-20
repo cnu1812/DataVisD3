@@ -46,5 +46,6 @@ You can modify the map by changing the data in the all_years_data.json file, or 
 
 The code has already included a CSS style that sets the font-family for all elements to 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif and adds a white background, padding of 5px, 70% opacity, and font size of 24px to any element with the title class.
 
-#### If you get this error while setting up the project, please open the html file on localhost
+#### If you are not able to see world map orget this error while setting up the project, please open the html file on localhost
+![Screenshot 2023-04-20 181608](https://user-images.githubusercontent.com/75531528/233370220-428e4e56-aac0-456c-b41f-c74a8e49f901.png)
 
