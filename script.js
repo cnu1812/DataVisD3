@@ -406,7 +406,7 @@ asianEuropeanUnisChart.setOption(asianEuropeanUnisChartOption);
 
 // N° of top 10 spots takeover by UnitedStates over the years
 
-var topUnisChart = echarts.init(document.getElementById("top-uni"));
+var topUnisChart = echarts.init(document.getElementById("top-unis"));
 
 var topUnisChartOption = {
     title: {
@@ -448,7 +448,7 @@ topUnisChart.setOption(topUnisChartOption);
 
 // N° of top 10 spots takeover by Asia in coming years
 
-var futuretopUnisChart = echarts.init(document.getElementById("future-top-uni"));
+var futuretopUnisChart = echarts.init(document.getElementById("future-top-unis"));
 
 var futuretopUnisChartOption = {
     title: {
