@@ -272,3 +272,134 @@ customSlider();
 slider.addEventListener("input", () => {
     customSlider();
 })
+
+
+// "N° of European universities over the years" Chart
+
+var europeanUnisChart = echarts.init(document.getElementById("european-unis"));
+
+var europeanUnisChartOption = {
+    title: {
+        text: 'N° of european universities over the years',
+        textStyle: {
+            color: '#64748b', // tailwind slate-500
+            fontWeight: '600',
+            fontFamily: 'Inter'
+        }
+    },
+    color: '#334155', // tailwind slate-700
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    xAxis: {
+      type: 'category',
+      data: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022']
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        name: 'European Universities',
+        data: [72, 161, 164, 166, 163, 310, 348, 370, 401, 435, 466, 600],
+        type: 'line'
+      }
+    ]
+  };
+
+europeanUnisChart.setOption(europeanUnisChartOption);
+
+
+// "N° of Asian universities over the years" Chart
+
+var asianUnisChart = echarts.init(document.getElementById("asian-unis"));
+
+var asianUnisChartOption = {
+    title: {
+        text: 'N° of asian universities over the years',
+        textStyle: {
+            color: '#64748b', // tailwind slate-500
+            fontWeight: '600',
+            fontFamily: 'Inter'
+        }
+    },
+    color: '#0ea5e9', // tailwind sky-500
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    xAxis: {
+      type: 'category',
+      data: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022']
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        name: 'Asian Universities',
+        data: [19, 46, 45, 46, 48, 158, 245, 305, 356, 416, 473, 775],
+        type: 'line'
+      }
+    ]
+  };
+
+asianUnisChart.setOption(asianUnisChartOption);
+
+
+// "Comparison between N° of Asian and European universities over the years" Chart
+
+var asianEuropeanUnisChart = echarts.init(document.getElementById("asian-european-unis"));
+
+var asianEuropeanUnisChartOption = option = {
+    title: {
+        text: 'N° of asian and european universities over the years',
+        textStyle: {
+            color: '#64748b', // tailwind slate-500
+            fontWeight: '600',
+            fontFamily: 'Inter'
+        }
+    },
+    color: ['#0ea5e9','#334155'], // // tailwind sky-500, tailwind slate-700
+    tooltip: {
+      trigger: 'axis'
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: {
+        type: 'category',
+        data: ['2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          name: 'Asian Universities',
+          data: [19, 46, 45, 46, 48, 158, 245, 305, 356, 416, 473, 775],
+          type: 'line'
+        },
+        {
+          name: 'European Universities',
+          data: [72, 161, 164, 166, 163, 310, 348, 370, 401, 435, 466, 600],
+          type: 'line'
+        }
+      ]
+};
+
+asianEuropeanUnisChart.setOption(asianEuropeanUnisChartOption);
